@@ -33,15 +33,15 @@
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between select-none overflow-x-hidden">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-center select-none overflow-hidden">
 
-    <div class="w-full max-w-md mx-auto bg-slate-950 min-h-screen shadow-2xl flex flex-col justify-between pb-24 relative">
+    <!-- APP WRAPPER: Locked to viewport height to ensure Native Mobile App experience -->
+    <div class="w-full max-w-md mx-auto bg-slate-950 h-screen flex flex-col justify-between relative overflow-hidden shadow-2xl">
         
-        <!-- App Header Banner -->
-        <header class="bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950 border-b border-indigo-900/30 p-5 pt-7 pb-6 flex items-center justify-between sticky top-0 z-40">
+        <!-- App Header Banner (Fixed/Static at Top) -->
+        <header class="bg-gradient-to-r from-indigo-950 via-slate-900 to-blue-950 border-b border-indigo-900/30 p-5 pt-6 pb-5 flex items-center justify-between flex-shrink-0 z-40">
             <div class="flex items-center gap-3">
                 <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-indigo-500 to-blue-400 p-0.5 shadow-lg flex items-center justify-center">
-                    <!-- Wedding Groom Inspired Avatar Ring -->
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
@@ -54,7 +54,7 @@
                     <p class="text-xs text-indigo-300 font-medium">ปฏิทินลดน้ำหนักฉบับเจ้าบ่าว</p>
                 </div>
             </div>
-            <!-- Beautiful Wedding Ring Badge -->
+            
             <div class="bg-amber-400/10 border border-amber-400/30 px-3 py-1.5 rounded-full flex items-center gap-1 text-amber-400 text-xs font-semibold shadow-inner">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <circle cx="12" cy="14" r="6" stroke-width="2.5"></circle>
@@ -64,10 +64,8 @@
             </div>
         </header>
 
-        <main class="flex-grow p-4 space-y-6 overflow-y-auto mb-4">
-            
-            <!-- VIEW: DASHBOARD (HOME) -->
-        <main class="flex-grow p-4 space-y-6 overflow-y-auto mb-4">
+        <!-- Scrollable Content Area (Only this area scrolls) -->
+        <main class="flex-1 p-4 space-y-6 overflow-y-auto pb-28">
             
             <!-- VIEW: DASHBOARD (HOME) -->
             <section id="view-dashboard" class="space-y-6">
@@ -254,7 +252,7 @@
                 <!-- HIIT Training Explainer Card -->
                 <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-2xl text-xs space-y-2.5 text-slate-400">
                     <h4 class="font-bold text-white text-sm">💡 วิธีใช้ปฏิทิน HIIT เพื่อประสิทธิภาพสูงสุด</h4>
-                    <p><b>สำหรับ HIIT วิ่ง:</b> อุ่นร่างกาย 5 นาที จากนั้นรันนาฬิกาแบบ 1 นาที พอนาฬิกาดังให้เร่งวิ่งสปีดสุดตัว 1 นาที สลับกับเดินหรือวิ่งจ๊อกกิ้งเบาๆ 1 นาที ทำแบบนี้สลับกันวนซ้ำจนครบ 30 นาที</p>
+                    <p><b>for HIIT Running:</b> วอร์มอัพร่างกาย 5 นาที จากนั้นเปิดโปรแกรมจับเวลาแบบ 1 นาที เมื่อสัญญาณดังขึ้นให้เร่งสปีดวิ่งสุดกำลัง 1 นาที สลับกับเดินหรือจ๊อกกิ้งเบาๆ 1 นาที ทำวนซ้ำไปเรื่อยๆ จนครบ 30 นาที</p>
                 </div>
             </section>
 
@@ -299,7 +297,7 @@
                     </div>
                 </div>
 
-                <!-- Backup & Restore Data (Extremely safe for PWA wrapper deployment) -->
+                <!-- Backup & Restore Data -->
                 <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-3">
                     <h3 class="font-bold text-white text-base border-b border-slate-800 pb-2.5">
                         💾 จัดการสำรองข้อมูลแอป
@@ -377,8 +375,8 @@
         <!-- Backdrop overlay for modal -->
         <div id="modalBackdrop" onclick="closeModal()" class="fixed inset-0 bg-black/60 z-40 hidden transition-opacity duration-300 opacity-0"></div>
 
-        <!-- BOTTOM NAVIGATION BAR (APP BAR STYLE) -->
-        <nav class="absolute bottom-0 inset-x-0 bg-slate-900 border-t border-slate-800 grid grid-cols-4 text-center py-2 px-1 z-30 shadow-2xl">
+        <!-- BOTTOM NAVIGATION BAR (Strictly Locked and Static at bottom of App container) -->
+        <nav class="absolute bottom-0 inset-x-0 bg-slate-900 border-t border-slate-800 grid grid-cols-4 text-center py-4 px-1 z-30 shadow-2xl flex-shrink-0">
             <button onclick="switchView('dashboard')" id="nav-dashboard" class="flex flex-col items-center justify-center py-1.5 text-indigo-400 font-bold transition">
                 <svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
@@ -478,7 +476,6 @@
         let timerSecondsLeft = 0;
         let isTimerRunning = false;
 
-        // Custom Sound Synth using Web Audio API (highly responsive, no internet assets needed)
         function playSignalSound(type) {
             try {
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -489,13 +486,11 @@
                 gain.connect(audioCtx.destination);
                 
                 if (type === 'start') {
-                    // Modern 3-step high-pitch signal
                     osc.frequency.setValueAtTime(880, audioCtx.currentTime); 
                     gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
                     osc.start();
                     osc.stop(audioCtx.currentTime + 0.35);
                 } else if (type === 'end') {
-                    // Deep double alarm chime
                     osc.frequency.setValueAtTime(440, audioCtx.currentTime);
                     gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
                     osc.start();
@@ -522,15 +517,13 @@
 
         function toggleTimer() {
             if (isTimerRunning) {
-                // Pause State
                 clearInterval(timerInterval);
                 isTimerRunning = false;
                 document.getElementById('btn-timer-start').innerText = "START";
                 document.getElementById('btn-timer-start').classList.replace('bg-amber-600', 'bg-emerald-600');
                 document.getElementById('timer-pulse-layer').classList.add('hidden');
             } else {
-                // Start State
-                if (timerSecondsLeft <= 0) timerSecondsLeft = 60; // default 1 min
+                if (timerSecondsLeft <= 0) timerSecondsLeft = 60;
                 playSignalSound('start');
                 isTimerRunning = true;
                 document.getElementById('btn-timer-start').innerText = "PAUSE";
@@ -568,36 +561,29 @@
 
         // --- 4. TABS NAVIGATION & VIEW SWITCHING ---
         function switchView(viewName) {
-            // Hide all tabs
             document.getElementById('view-dashboard').classList.add('hidden');
             document.getElementById('view-calendar').classList.add('hidden');
             document.getElementById('view-timer').classList.add('hidden');
             document.getElementById('view-settings').classList.add('hidden');
 
-            // Reset navigation menu styling
             document.getElementById('nav-dashboard').className = "flex flex-col items-center justify-center py-1.5 text-slate-500 transition";
             document.getElementById('nav-calendar').className = "flex flex-col items-center justify-center py-1.5 text-slate-500 transition";
             document.getElementById('nav-timer').className = "flex flex-col items-center justify-center py-1.5 text-slate-500 transition";
             document.getElementById('nav-settings').className = "flex flex-col items-center justify-center py-1.5 text-slate-500 transition";
 
-            // Activate chosen view and button
             document.getElementById(`view-${viewName}`).classList.remove('hidden');
             document.getElementById(`nav-${viewName}`).className = "flex flex-col items-center justify-center py-1.5 text-indigo-400 font-black transition";
         }
 
         // --- 5. LOGIC FOR WORKOUT TASK GENERATION BASED ON DATE ---
         function getGoalForDate(day, mIdx) {
-            // 1 June 2026 is exactly a Monday
             const startDate = new Date(2026, 5, 1);
             const targetDate = new Date(2026, mIdx + 5, day);
             const diffDays = Math.floor((targetDate - startDate) / (1000 * 60 * 60 * 24));
-            
-            // Handle negative bounds just in case, and resolve to activities array indexes
             const index = ((diffDays % 7) + 7) % 7;
             return activities[index];
         }
 
-        // Get date string normalized
         function getDateStr(day, monthIndex) {
             return `2026-${String(monthIndex + 6).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         }
@@ -605,13 +591,12 @@
         // --- 6. INITIALIZING & RENDERING CALENDAR ---
         function initCalendar() {
             const container = document.getElementById('monthContainer');
-            container.innerHTML = ""; // Clear old layout
+            container.innerHTML = "";
 
             months.forEach((month, mIdx) => {
                 const div = document.createElement('div');
                 div.className = "bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl";
                 
-                // Header of the Month
                 div.innerHTML = `
                     <h3 class="font-bold text-white text-sm mb-3 flex items-center gap-2">
                         <span class="w-1.5 h-3 bg-indigo-500 rounded-full"></span>
@@ -626,22 +611,18 @@
 
                 const grid = document.getElementById(`m-${mIdx}`);
                 
-                // Render blank spaces for starting days of the week
                 for (let i = 0; i < month.start; i++) {
                     const empty = document.createElement('div');
                     grid.appendChild(empty);
                 }
 
-                // Render each single active day
                 for (let i = 1; i <= month.days; i++) {
                     const day = document.createElement('div');
                     const dStr = getDateStr(i, mIdx);
                     
-                    // Default baseline styles
                     day.className = "h-11 rounded-lg flex flex-col items-center justify-center text-xs font-bold cursor-pointer transition active:scale-90 border border-slate-800 bg-slate-950/40 text-slate-300 hover:bg-slate-800 relative";
                     day.innerHTML = `<span class="mt-1">${i}</span>`;
 
-                    // Apply visual color tags based on completed state log
                     if (logs[dStr]) {
                         const data = logs[dStr];
                         const allDone = data.g1 && data.c1 && data.c2 && data.c3;
@@ -654,7 +635,6 @@
                         }
                     }
 
-                    // Special Wedding Day Styling (22 November 2569 - Pink Heart Day!)
                     if (mIdx === 5 && i === 22) {
                         day.classList.remove('bg-slate-950/40', 'text-slate-300', 'border-slate-800');
                         day.classList.add('border-pink-500', 'bg-pink-950/30', 'text-pink-300');
@@ -670,7 +650,7 @@
             });
         }
 
-        // --- 7. DAY MODAL SYSTEM (OPEN, POPULATE, SAVE) ---
+        // --- 7. DAY MODAL SYSTEM ---
         function openDayModal(day, mIdx, dStr) {
             selectedModalDate = dStr;
             const data = logs[dStr] || {};
@@ -679,14 +659,12 @@
             document.getElementById('modal-date').innerText = thaiDate;
             document.getElementById('modal-goal-text').innerText = getGoalForDate(day, mIdx);
 
-            // Populate form values
             document.getElementById('modal-weight').value = data.weight || "";
             document.getElementById('modal-goal1').checked = !!data.g1;
             document.getElementById('modal-check1').checked = !!data.c1;
             document.getElementById('modal-check2').checked = !!data.c2;
             document.getElementById('modal-check3').checked = !!data.c3;
 
-            // Trigger visual transitions
             const modal = document.getElementById('dayDetailModal');
             const backdrop = document.getElementById('modalBackdrop');
             
@@ -721,7 +699,6 @@
                 c3: document.getElementById('modal-check3').checked
             };
 
-            // Remove node completely if user clears the entire day inputs
             const d = logs[selectedModalDate];
             if (!d.weight && !d.g1 && !d.c1 && !d.c2 && !d.c3) {
                 delete logs[selectedModalDate];
@@ -734,7 +711,6 @@
 
         // --- 8. DASHBOARD DATA & QUICK SAVE ENGINE ---
         function getLatestLoggedWeight() {
-            // Find weight entries and get the most recent date's value
             let latestWeight = profile.startWeight;
             const sortedDates = Object.keys(logs).sort();
             
@@ -753,15 +729,12 @@
             const dayNum = today.getDate();
             const yearNum = today.getFullYear();
             
-            // Check if current date is within June-November 2026 range (or default to simulation day 16 June 2026)
-            let mIdx = today.getMonth() - 5; // 5 is June (0-indexed month sequence start)
+            let mIdx = today.getMonth() - 5; 
+            let dayNumSim = dayNum;
             
-            // Fail-safe default to June 16, 2026 if today is outside of the active wedding prep plan calendar
             if (yearNum !== 2026 || mIdx < 0 || mIdx > 5) {
-                mIdx = 0; // June
+                mIdx = 0; 
                 dayNumSim = 16;
-            } else {
-                dayNumSim = dayNum;
             }
 
             const todayDateStr = getDateStr(dayNumSim, mIdx);
@@ -770,7 +743,6 @@
             const goalDesc = getGoalForDate(dayNumSim, mIdx);
             document.getElementById('today-workout-desc').innerText = goalDesc;
 
-            // Load Quick checkboxes for today
             const todayData = logs[todayDateStr] || {};
             document.getElementById('today-check-workout').checked = !!todayData.g1;
             document.getElementById('today-check-if').checked = !!todayData.c1;
@@ -789,12 +761,11 @@
             const dayNum = today.getDate();
             const yearNum = today.getFullYear();
             let mIdx = today.getMonth() - 5;
+            let dayNumSim = dayNum;
             
             if (yearNum !== 2026 || mIdx < 0 || mIdx > 5) {
-                mIdx = 0; // Simulated default
+                mIdx = 0; 
                 dayNumSim = 16;
-            } else {
-                dayNumSim = dayNum;
             }
 
             const todayDateStr = getDateStr(dayNumSim, mIdx);
@@ -819,12 +790,11 @@
             const dayNum = today.getDate();
             const yearNum = today.getFullYear();
             let mIdx = today.getMonth() - 5;
+            let dayNumSim = dayNum;
             
             if (yearNum !== 2026 || mIdx < 0 || mIdx > 5) {
                 mIdx = 0;
                 dayNumSim = 16;
-            } else {
-                dayNumSim = dayNum;
             }
 
             const todayDateStr = getDateStr(dayNumSim, mIdx);
@@ -838,7 +808,7 @@
             refreshAllViews();
         }
 
-        // --- 9. WEIGHT CALCULATIONS & PROFILE VIEWS UPDATING ---
+        // --- 9. WEIGHT CALCULATIONS & PROFILE VIEWS ---
         function renderProgressMetrics() {
             const startW = parseFloat(profile.startWeight);
             const targetW = parseFloat(profile.targetWeight);
@@ -848,14 +818,12 @@
             const remainingToLose = currentW - targetW;
             const totalTargetDelta = startW - targetW;
 
-            // Update DOM
             document.getElementById('stat-start-weight').innerText = startW.toFixed(1);
             document.getElementById('stat-target-weight').innerText = targetW.toFixed(1);
             document.getElementById('stat-total-lost').innerText = (totalWLost > 0 ? totalWLost : 0).toFixed(1) + " กก.";
             document.getElementById('stat-remaining-weight').innerText = (remainingToLose > 0 ? remainingToLose : 0).toFixed(1) + " กก.";
             document.getElementById('stat-remaining-diff').innerText = `รวมเป้าหมายที่ต้องลดเลี่ยง ${totalTargetDelta.toFixed(1)} กก.`;
 
-            // Calculate progress percentage
             let percent = 0;
             if (totalTargetDelta > 0) {
                 percent = Math.floor((totalWLost / totalTargetDelta) * 100);
@@ -878,7 +846,7 @@
             return `${parseInt(parts[2])} ${mLabel} ${yearThai}`;
         }
 
-        // --- 10. SYSTEM SETTINGS & PREFERENCES FORM LOGIC ---
+        // --- 10. SYSTEM SETTINGS & PREFERENCES FORM ---
         function loadSettingsForm() {
             document.getElementById('set-start-weight').value = profile.startWeight;
             document.getElementById('set-target-weight').value = profile.targetWeight;
@@ -938,7 +906,6 @@
             if (confirm(`คุณครูแน่ใจใช่ไหมครับว่าต้องการลบน้ำหนักวันที่ ${dateKey} ?`)) {
                 if (logs[dateKey]) {
                     logs[dateKey].weight = "";
-                    // Clear the day storage if completely empty
                     const d = logs[dateKey];
                     if (!d.g1 && !d.c1 && !d.c2 && !d.c3) {
                         delete logs[dateKey];
@@ -949,7 +916,7 @@
             }
         }
 
-        // --- 11. DATA BACKUP EXPORT & IMPORT ---
+        // --- 11. DATA BACKUP ---
         function exportData() {
             const dataToExport = {
                 profile: profile,
@@ -957,7 +924,6 @@
             };
             const jsonStr = JSON.stringify(dataToExport);
             
-            // Clipboard fallback as requested
             const tempTextArea = document.createElement('textarea');
             tempTextArea.value = jsonStr;
             document.body.appendChild(tempTextArea);
@@ -1005,7 +971,6 @@
             loadSettingsForm();
         }
 
-        // Run setup once DOM is fully available
         window.onload = function() {
             runCountdown();
             refreshAllViews();
